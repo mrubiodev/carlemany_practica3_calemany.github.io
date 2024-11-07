@@ -39,11 +39,27 @@ if ($db) {
             font-size: 1.5em;
             color: #f44336; /* Rojo si falla la conexión */
         }
+        h1 {
+        font-size: 2.5em;
+        color: #333;
+        }
+        p {
+        font-size: 1.2em;
+        color: #666;
+        }
+        .icon {
+        font-size: 4em;
+        color: #FFA500;
+        margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Página de Inicio</h1>
+    <div class="icon">🚧</div>
+    <h1>Página en Construcción</h1>
+    <p>Estamos trabajando para traerte una nueva experiencia. ¡Vuelve pronto!</p>
         <p class="<?php echo $db ? 'message' : 'error'; ?>">
             <?php echo $message; ?>
         </p>
