@@ -4,11 +4,12 @@ FROM python:3.9-slim
 # Instala las dependencias necesarias
 RUN apt-get update && apt-get install -y \
     gcc \
-    libmysqlclient-dev \
+    libmariadb-dev-compat \
+    libmariadb-dev \
     pkg-config \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
+	
 # Establece el directorio de trabajo en /app
 WORKDIR /app
 
