@@ -31,18 +31,33 @@ services:
     networks:
       - app-network
 
-  backend:
-    build: ./backend
-    container_name: flask_backend
+#  backend: #Me equivoque pense que se podia hacer una estructura api-rest donde flask era la api-rest y php hacia la peticiones
+#   build: ./backend
+#   container_name: flask_backend
+#   ports:
+#     - "${BACKEND_PORT}:80"
+#     depends_on:
+#      - db
+#     environment:
+#       - DB_HOST=${DB_HOST}
+#       - DB_USER=${DB_USER}
+#       - DB_PASSWORD=${DB_PASSWORD}
+#       - DB_NAME=${DB_NAME}
+#     networks:
+#       - app-network
+
+  php:
+    build: ./backend_php
+    container_name: php_backend
     ports:
-      - "${BACKEND_PORT}:80"
+      - "${APP_PORT_PHP}:80"
     depends_on:
       - db
     environment:
       - DB_HOST=${DB_HOST}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${DB_NAME}
+      - DB_USER=root
+      - DB_PASSWORD=my-secret-pw
+      - DB_NAME=app_db
     networks:
       - app-network
 
