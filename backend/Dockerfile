@@ -9,7 +9,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el resto de la aplicación en el contenedor
-COPY . .
+COPY ./app .
 
 # Define la variable de entorno para indicar el modo de producción
 ENV FLASK_ENV=production
