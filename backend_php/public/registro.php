@@ -33,7 +33,8 @@
 </html>
 
 <?php
-// Incluir conexión a la base de datos
+// registro.php
+
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,13 +42,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (usuario, nombre, password) VALUES ('$usuario', '$nombre', '$password')";
+    $database = new Database();
+    $conn = $database->getConnection();
 
-    if ($conn->query($sql) === TRUE) {
+    // Preparar la consulta de inserción de usuario
+    $sql = "INSERT INTO users (username, nombre, password) VALUES (:usuario, :nombre, :password)";
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bindParam(':usuario', $usuario);
+    $stmt->bindParam(':nombre', $nombre);
+    $stmt->bindParam(':password', $password);
+
+    try {
+        $stmt->execute();
         echo "<script>alert('Registro exitoso'); window.location.href='login.php';</script>";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
+
+    $conn = null; // Cerrar la conexión
 }
-$conn->close();
 ?>

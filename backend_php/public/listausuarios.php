@@ -20,16 +20,23 @@ if (!isset($_SESSION['usuario'])) {
         <h2 class="text-center mt-5">Lista de Usuarios</h2>
         <div class="row mt-4">
             <?php
-            $sql = "SELECT usuario, nombre FROM usuarios";
-            $result = $conn->query($sql);
+            // Crear una instancia de la base de datos y obtener la conexión
+            $database = new Database();
+            $conn = $database->getConnection();
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
+            // Consulta SQL para obtener la lista de usuarios
+            $sql = "SELECT username, nombre FROM users";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+
+            // Verificar si hay resultados y mostrar la lista de usuarios
+            if ($stmt->rowCount() > 0) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '<div class="col-md-4 mb-3">';
                     echo '<div class="card">';
                     echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . $row['nombre'] . '</h5>';
-                    echo '<p class="card-text"><strong>Usuario:</strong> ' . $row['usuario'] . '</p>';
+                    echo '<h5 class="card-title">' . htmlspecialchars($row['nombre']) . '</h5>';
+                    echo '<p class="card-text"><strong>Usuario:</strong> ' . htmlspecialchars($row['username']) . '</p>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -37,7 +44,9 @@ if (!isset($_SESSION['usuario'])) {
             } else {
                 echo "<p>No hay usuarios registrados.</p>";
             }
-            $conn->close();
+
+            // Cerrar la conexión
+            $conn = null;
             ?>
         </div>
         <a href="logout.php" class="btn btn-secondary mt-4">Cerrar Sesión</a>

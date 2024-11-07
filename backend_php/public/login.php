@@ -1,3 +1,37 @@
+<?php
+// login.php
+
+include 'db.php';
+session_start(); // Iniciar sesión antes de cualquier salida de HTML
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usuario = $_POST['usuario'];
+    $password = $_POST['password'];
+
+    $database = new Database();
+    $conn = $database->getConnection();
+
+    $sql = "SELECT * FROM users WHERE username = :username";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':username', $usuario);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['usuario'] = $usuario;
+            header("Location: listausuarios.php");
+            exit();
+        } else {
+            echo "<script>alert('Contraseña incorrecta');</script>";
+        }
+    } else {
+        echo "<script>alert('Usuario no encontrado');</script>";
+    }
+    $conn = null; // Cerrar la conexión
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,30 +61,3 @@
     </div>
 </body>
 </html>
-
-<?php
-include 'db.php';
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['usuario'] = $usuario;
-            header("Location: listausuarios.php");
-            exit();
-        } else {
-            echo "<script>alert('Contraseña incorrecta');</script>";
-        }
-    } else {
-        echo "<script>alert('Usuario no encontrado');</script>";
-    }
-}
-$conn->close();
-?>
