@@ -1,10 +1,22 @@
+<?php
+session_start();
+session_unset();
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio</title>
+    <title>Cerrar Sesión</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        // Redirige al usuario a login.php después de 3 segundos
+        setTimeout(function() {
+            window.location.href = "login.php";
+        }, 3000);
+    </script>
 
     <style>
         /* Establece el fondo a pantalla completa */
@@ -31,25 +43,19 @@
 
     </style>
 </head>
-<body class="d-flex align-items-center">
-
+<body class="bg-light d-flex align-items-center" style="height: 100vh;">
     <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h1 class="mb-4 text-white">Bienvenido</h1>
-                <p class="lead mb-4 text-white">Por favor, elige una opción:</p>
-                <div class="d-flex justify-content-center">
-                    <!-- Botón de Iniciar sesión -->
-                    <a href="login.php" class="btn btn-primary btn-lg mx-2">Iniciar sesión</a>
-                    <!-- Botón de Registrarse -->
-                    <a href="registro.php" class="btn btn-success btn-lg mx-2">Registrarse</a>
-                </div>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">¡Sesión cerrada con éxito!</h4>
+            <p>Has cerrado sesión correctamente. Serás redirigido a la página de inicio en unos momentos.</p>
+            <hr>
+            <p class="mb-0">Gracias por visitarnos.</p>
+        </div>
+        <div class="mt-3">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Cargando...</span>
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

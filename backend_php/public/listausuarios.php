@@ -1,10 +1,14 @@
 <?php
-include 'db.php';
 session_start();
+
+// Verificar si el usuario está autenticado
 if (!isset($_SESSION['usuario'])) {
+    // Si no hay sesión de usuario, redirigir a la página de inicio de sesión
     header("Location: login.php");
     exit();
 }
+
+include 'db.php';
 ?>
 
 <!DOCTYPE html>
