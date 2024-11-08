@@ -52,7 +52,6 @@ if ($db) {
         color: #FFA500;
         margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>

@@ -17,31 +17,7 @@ session_destroy();
             window.location.href = "login.php";
         }, 3000);
     </script>
-
-    <style>
-        /* Establece el fondo a pantalla completa */
-        body {
-            background-image: url('resources/bg.jpeg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-            margin: 0; /* Elimina márgenes predeterminados */
-        }
-
-        /* Estilo para la columna con un fondo grisáceo traslúcido */
-        .col-md-6 {
-            background-color: rgba(0, 0, 0, 0.5); /* Gris con opacidad */
-            padding: 30px;
-            border-radius: 10px;
-            color: white; /* Asegura que el texto sea blanco */
-        }
-
-        /* Opcional: color del texto dentro de la columna */
-        .col-md-6 h1, .col-md-6 p {
-            color: white;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./resources/basic.css">
 </head>
 <body class="bg-light d-flex align-items-center" style="height: 100vh;">
     <div class="container text-center">
