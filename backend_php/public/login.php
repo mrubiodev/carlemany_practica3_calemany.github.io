@@ -1,8 +1,15 @@
 <?php
 // login.php
+session_start();
+
+// Check if session exists, redirect if true
+if (isset($_SESSION['usuario'])) {
+    header("Location: listausuarios.php");
+    exit();
+}
 
 include 'db.php';
-session_start(); // Iniciar sesión antes de cualquier salida de HTML
+//session_start(); // Iniciar sesión antes de cualquier salida de HTML
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['usuario'];
@@ -40,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Iniciar Sesión</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./resources/basic.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script type="text/javascript" src="./resources/floatbuttonreturn.js"></script> 
 </head>
 <body class="bg-light">
     <div class="container">
