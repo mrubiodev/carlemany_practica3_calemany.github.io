@@ -86,3 +86,14 @@ La aplicación es responsive y cuenta con un diseño adaptativo para dispositivo
 - Pruebas de la interfaz y experiencia de usuario.
 - Pruebas de funcionalidad de autenticación y seguridad de contraseñas.
 - Actualización del README y creación de guías de configuración y despliegue.
+
+## Imagenes
+![image](https://github.com/user-attachments/assets/a498ba53-b642-49a4-b637-5c67fd155eef)
+![image](https://github.com/user-attachments/assets/e9874cef-9c19-459c-ae84-19fb88f12b94)
+![image](https://github.com/user-attachments/assets/5f4c3883-f825-4574-97f9-a521fb05ac76)
+![image](https://github.com/user-attachments/assets/ce3293cb-47db-48d5-9ad1-8e59342758cf)
+![image](https://github.com/user-attachments/assets/d3b34281-2f76-47fd-a24a-1b46644e7b9b)
+![image](https://github.com/user-attachments/assets/c418340f-091d-43ef-9217-1d0417700cbb)
+![responsive](https://github.com/user-attachments/assets/d624a10d-abdd-4bc7-aa4a-6e971813c054)
+![image](https://github.com/user-attachments/assets/35435b10-5527-422b-920e-45f895ef8ef7)
+
