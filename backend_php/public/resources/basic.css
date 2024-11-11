@@ -1,22 +1,28 @@
+/* Aplica fondo completo al cuerpo */
+html, body {
+    height: 100%; /* Asegura que tanto html como body ocupen toda la altura */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el scroll en caso de ajuste */
+}
 
-/* Establece el fondo a pantalla completa */
 body {
     background-image: url('bg.jpeg');
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
-    margin: 0; /* Elimina márgenes predeterminados */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
 }
 
-/* Estilo para la columna con un fondo grisáceo traslúcido */
+/* Columna central con fondo traslúcido */
 .col-md-6 {
-    background-color: rgba(0, 0, 0, 0.5); /* Gris con opacidad */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo gris traslúcido */
     padding: 30px;
     border-radius: 10px;
-    color: white; /* Asegura que el texto sea blanco */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade un ligero sombreado */
 }
 
-/* Opcional: color del texto dentro de la columna */
+/* Opcional: color del texto */
 .col-md-6 h1, .col-md-6 p {
     color: white;
 }

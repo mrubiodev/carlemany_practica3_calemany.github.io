@@ -18,6 +18,7 @@ include 'db.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuarios</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/basic.css">
 </head>
 <body class="bg-light">
     <div class="container">
@@ -53,7 +54,9 @@ include 'db.php';
             $conn = null;
             ?>
         </div>
-        <a href="logout.php" class="btn btn-secondary mt-4">Cerrar Sesión</a>
+        <div class="d-flex justify-content-center">
+            <a href="logout.php" class="btn btn-secondary mt-4">Cerrar Sesión</a>
+        </div>
     </div>
 </body>
 </html>
