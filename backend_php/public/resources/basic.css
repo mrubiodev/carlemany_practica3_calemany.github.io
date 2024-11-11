@@ -3,7 +3,8 @@ html, body {
     height: 100%; /* Asegura que tanto html como body ocupen toda la altura */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Evita el scroll en caso de ajuste */
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
 }
 
 body {
@@ -25,4 +26,12 @@ body {
 /* Opcional: color del texto */
 .col-md-6 h1, .col-md-6 p {
     color: white;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .col-md-6 {
+        padding: 20px;
+        max-width: 95%; /* Reduce el ancho en pantallas pequeñas */
+    }
 }
