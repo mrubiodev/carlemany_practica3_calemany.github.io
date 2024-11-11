@@ -33,8 +33,8 @@ Se podrá configurar esto a través del fichero `.env`.
 
 ## Tecnologías
 
-- **Frontend:** HTML, CSS (Bootstrap) y PHP.
-- **Backend:** Framework Flask de Python.
+- **Frontend:** HTML, CSS (Bootstrap).
+- **Backend:** PHP.
 - **Base de datos:** MySQL accesible a través de PhpMyAdmin.
 - **Docker:** Contenedores para la aplicación web y base de datos.
 
